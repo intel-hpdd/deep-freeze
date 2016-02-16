@@ -1,0 +1,43 @@
+{
+  "name": "intel-deep-freeze",
+  "version": "1.0.0",
+  "description": "Recursively freezes a JSON like object tree",
+  "main": "dist/source/index.js",
+  "scripts": {
+    "test:dev": "npm run prepublish && npm t",
+    "test": "NODE_ENV=test ./bin/test.js",
+    "eslint": "eslint ./",
+    "jscs": "jscs .",
+    "prepublish": "./bin/build.sh"
+  },
+  "publishConfig": {
+    "registry": "https://ubit-artifactory-or.intel.com/artifactory/api/npm/iml-npm-local"
+  },
+  "pre-commit": [
+    "jscs",
+    "eslint",
+    "test:dev"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.intel.com:IML/deep-freeze.git"
+  },
+  "author": "IML Team",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "6.5.1",
+    "babel-core": "6.5.2",
+    "babel-eslint": "5.0.0-beta10",
+    "babel-plugin-transform-flow-strip-types": "6.5.0",
+    "babel-plugin-transform-strict-mode": "6.5.2",
+    "babel-preset-es2015": "6.5.0",
+    "eslint": "2.1.0",
+    "eslint-plugin-flow-vars": "0.1.3",
+    "intel-jasmine-n-matchers": "2.1.1",
+    "jasmine": "2.4.1",
+    "jscs": "2.10.1",
+    "intel-jasmine-junit-reporter": "1.0.0",
+    "pre-commit": "1.1.2"
+  },
+  "dependencies": {}
+}
