@@ -4,11 +4,11 @@
   "description": "Recursively freezes a JSON like object tree",
   "main": "dist/source/index.js",
   "scripts": {
-    "test:dev": "npm run prepublish && npm t",
+    "test:dev": "npm run postversion && npm t",
     "test": "NODE_ENV=test ./bin/test.js",
     "eslint": "eslint ./",
     "jscs": "jscs .",
-    "prepublish": "./bin/build.sh"
+    "postversion": "./bin/build.sh"
   },
   "publishConfig": {
     "registry": "https://ubit-artifactory-or.intel.com/artifactory/api/npm/iml-npm-local"
