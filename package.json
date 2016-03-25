@@ -1,6 +1,6 @@
 {
   "name": "intel-deep-freeze",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Recursively freezes a JSON like object tree",
   "main": "dist/source/index.js",
   "scripts": {
