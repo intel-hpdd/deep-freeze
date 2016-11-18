@@ -1,3 +1,5 @@
+// @flow
+
 //
 // INTEL CONFIDENTIAL
 //
@@ -19,17 +21,5 @@
 // otherwise. Any license under such intellectual property rights must be
 // express and approved by Intel in writing.
 
-export default function deepFreeze (obj) {
-  Object.freeze(obj);
 
-  Object.keys(obj)
-    .filter(function removeNonObjects (key) {
-      return obj && obj[key] != null && typeof obj[key] === 'object';
-    })
-    .forEach(function freezeProps (key) {
-      if (obj)
-        deepFreeze(obj[key]);
-    });
-
-  return obj;
-}
+declare export default function deepFreeze <T:Object|Array<any>> (obj:T):T;

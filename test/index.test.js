@@ -1,3 +1,5 @@
+// @flow
+
 import {describe, it, expect, jasmine} from './jasmine';
 
 import deepFreeze from '../source/index';
@@ -27,14 +29,6 @@ describe ('deep freeze', () => {
     expect(Object.isFrozen(obj[0])).toBe(true);
   });
 
-  it('should work with null', () => {
-    expect(deepFreeze(null)).toBeNull();
-  });
-
-  it('should work with unfreezable values', () => {
-    expect(deepFreeze(3)).toBe(3);
-  });
-
   it('should work with nested unfreezables', () => {
     const obj = deepFreeze([
       1,
@@ -44,4 +38,5 @@ describe ('deep freeze', () => {
 
     expect(Object.isFrozen(obj[2])).toBe(true);
   });
+
 });
