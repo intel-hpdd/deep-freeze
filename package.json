@@ -20,13 +20,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.intel.com:MFL/deep-freeze.git"
+    "url": "https://github.com/intel-hpdd/deep-freeze.git"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "setup-jasmine-env.js",
     "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/setup-jasmine-env.js"
+      "/node_modules/"
     ]
   },
   "author": "MFL Team",
