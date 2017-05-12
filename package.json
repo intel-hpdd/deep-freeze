@@ -1,6 +1,6 @@
 {
   "name": "@mfl/deep-freeze",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Recursively freezes a JSON like object tree",
   "main": "source/index.js",
   "scripts": {
