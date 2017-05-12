@@ -11,5 +11,4 @@ yarn.lock
 run_test.sh
 setup-jasmine-env.js
 /test
-/source
 /coverage
