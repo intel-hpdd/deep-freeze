@@ -1,13 +1,22 @@
-language: node_js
-node_js:
-- 6
-- 7
-cache: yarn
-deploy:
-  provider: npm
-  email: joe.grund@intel.com
-  api_key:
-    secure: fu0mlu3jP4sxDR5MQsFVKWLUWIBLtJuwsb0DTwE6MNQvsIu5VT/SRigCNbcPQ4YW4rYwRPcFh1Hp9AGh/XnvA4SdLOMyH91MDuoWontiR3/6lRZ0l9ht/YwmpYkQyN/sKMhz0aZTLSuQZBqD1aIcU+bIOSWVPk7b61lpm4zcLQab0a+riMrffg6BZ7IHsS4cengVONcqau4H98N4IG0DxbEUX1BZabcwyWd6ch9e5A4lCbb5+pswGvXIAwWxO11yBU48S2sN2uAVD3C6WrZCTfTm0FugQskUgByzleNEAgzNEiKUQzCMEUWdgI5Rd6dsSLn5s37+16787H5yUirP5AvPEywtdQ8FHqmmTwSgf8mjmFeAJUTj2eVVudGo7cjtZNtfAa3Z2hBHGO8KR0R7MRBfFJYZhRVbHiEKdT+WwJLZYr7EOFXVV5NvWJkMVBJuYKwCxIZ8e3J8GuUV/1s+xQ+qfKa4ZH1RfYxWJuDo19MXza0knIUxUzkvE+fffdUoJMRkJTdXtS2BZPuGkeBUBOBN8m3EcBLrUM75VuVCGGJvZjYOdfo4/pDWfcpnNYDd+GO14BxrbS57sqCsQKrEQaiFqohZ2wvXQfYJ+oYk5LKQdbPHFFxibyuwZt8yqTAjSRspzZqhGs2n9ToOIZppr3djZeLwNDEHpG69/KhPhVE=
-  on:
-    tags: true
-    repo: intel-hpdd/deep-freeze
+jobs:
+  include:
+    - stage: test
+      env: Type='virus scan'
+      script:
+        - sudo apt-get install clamav -y
+        - sudo freshclam
+        - clamscan --quiet -r ./
+    - stage: test
+      env: Type='unit test'
+      language: node_js
+      node_js:
+      - 6
+      - 7
+      cache: yarn
+      deploy:
+        provider: npm
+        email: "$NPM_EMAIL"
+        api_key: "$NPM_TOKEN"
+        on:
+          tags: true
+          repo: intel-hpdd/deep-freeze
